@@ -1,10 +1,47 @@
 use std::io;
 
+fn bubble<'a, T: std::fmt::Debug + std::cmp::PartialOrd + Copy>(
+    vector: &'a mut Vec<T>,
+) -> &'a Vec<T> {
+    println!(
+        "
+#RESULTS#"
+    );
+    println!("before bubble sort: {:?}", vector);
+    let mut outer_controller: usize = 0;
+    let length: usize = vector.len();
+
+    while outer_controller < length {
+        let mut inner_controller: usize;
+
+        inner_controller = outer_controller;
+        inner_controller += 1;
+        while inner_controller < length {
+            if &vector[outer_controller] > &vector[inner_controller] {
+                let holder = vector[outer_controller];
+                vector[outer_controller] = vector[inner_controller];
+                vector[inner_controller] = holder;
+            }
+
+            inner_controller += 1;
+            // println!("innercontroller value: {}", inner_controller);
+            //println!("lenght:{}, array:{:?}", vector.len(), vector);
+        }
+        outer_controller += 1;
+        //println!("outercontroller value: {}", outer_controller);
+    }
+
+    //call function on the array--  -- print the rearranged array.
+    println!("after_bubbling : {:?}", vector);
+
+    vector
+}
+
 fn main() {
     //vector to be rearranged
     let mut vector: Vec<i32> = Vec::new();
 
-    let mut control: i32 = 0;
+    let mut control: i32;
 
     println!(
         "
@@ -53,33 +90,5 @@ fn main() {
 
     //vector.push(3);
     //vector.push(1);
-    println!(
-        "
-#RESULTS#"
-    );
-    println!("before bubble sort: {:?}", vector);
-    let mut outer_controller: usize = 0;
-    let length: usize = vector.len();
-
-    while outer_controller < length {
-        let mut inner_controller: usize;
-
-        inner_controller = outer_controller;
-        inner_controller += 1;
-        while inner_controller < length {
-            if &vector[outer_controller] > &vector[inner_controller] {
-                let holder = vector[outer_controller];
-                vector[outer_controller] = vector[inner_controller];
-                vector[inner_controller] = holder;
-            }
-
-            inner_controller += 1;
-            // println!("innercontroller value: {}", inner_controller);
-            //println!("lenght:{}, array:{:?}", vector.len(), vector);
-        }
-        outer_controller += 1;
-        //println!("outercontroller value: {}", outer_controller);
-    }
-    //call function on the array--  -- print the rearranged array.
-    println!("after_bubbling : {:?}", vector);
+    println!("my vector: {:?}", bubble(&mut vector));
 }
