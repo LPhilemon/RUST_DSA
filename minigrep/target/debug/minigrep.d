@@ -1,0 +1,1 @@
+C:\Users\Philemon\Desktop\Resume\RUST\Crustacean\syntax_learning\src\RUST_DSA\minigrep\target\debug\minigrep.exe: C:\Users\Philemon\Desktop\Resume\RUST\Crustacean\syntax_learning\src\RUST_DSA\minigrep\src\lib.rs C:\Users\Philemon\Desktop\Resume\RUST\Crustacean\syntax_learning\src\RUST_DSA\minigrep\src\main.rs
